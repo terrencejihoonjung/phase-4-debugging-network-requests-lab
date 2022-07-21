@@ -62,12 +62,17 @@ developing your own process.
 
 - Add a new toy when the toy form is submitted
 
-  - How I debugged:
+  - How I debugged: First, I submitted an invalid toy and checked the network in DevTools. I saw that there was a 
+    500 Internal Server Error, which indicates that it could be a rails API issue. The next step would be to check the controller.
+    Before, I check the controller I also checked the server log and found that there is a NameError displayed. I found that 
+    the Toy relation was named incorrectly. 
 
 - Update the number of likes for a toy
 
-  - How I debugged:
+  - How I debugged: When adding a like, I was given an errors stating that there was an unexpected end of JSON input. This 
+    most likely means that I'm not rendering the json on the Rails API. Thus, I checked and found that I had to add the rendering. 
 
 - Donate a toy to Goodwill (and delete it from our database)
 
-  - How I debugged:
+  - How I debugged: When I tried donating to Goodwill, I received an error in the server log stating that there was no route matching
+    the delete request from the frontend. So, I checked the routes to first ensure that there was a route setup for a destroy. method. 
